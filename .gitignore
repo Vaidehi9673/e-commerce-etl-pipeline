@@ -1,0 +1,14 @@
+# Ignore virtual environments
+.venv/
+venv/
+env/
+
+# Ignore the data folders (We don't want to push massive CSVs)
+data/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore OS system files
+.DS_Store
