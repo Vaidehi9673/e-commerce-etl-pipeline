@@ -165,10 +165,13 @@ def load_data(dim_customer, dim_product, fact_sales, db_url):
 # ORCHESTRATOR (The Main Engine)
 # ==========================================
 def main():
-    # Configuration
-    raw_data_path = '/Users/vaidehianwekar/Documents/SQL/local_etl_project/data/raw_data/Amazon.csv'
-    clean_data_path = '/Users/vaidehianwekar/Documents/SQL/local_etl_project/data/processed_data/amazon_cleaned.csv'
+    # 1. Dynamically find the main project folder (local_etl_project)
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     
+    # 2. Build the paths safely
+    raw_data_path = os.path.join(BASE_DIR, 'data', 'raw_data', 'Amazon.csv')
+    clean_data_path = os.path.join(BASE_DIR, 'data', 'processed_data', 'amazon_cleaned.csv')
+        
     db_url = 'mysql+mysqlconnector://root:''@localhost:3306/amazon_warehouse'
     
     # Execute the Pipeline starting with extraction
